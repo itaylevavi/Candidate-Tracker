@@ -29,7 +29,11 @@ public class CandidatesController {
         List<CandidateProjection> candidates = candidatesRepository.findAllProjectedBy();
         return ResponseEntity.ok(candidates);
     }
-
+    @GetMapping("/all")
+    public ResponseEntity<List<Candidates>> getAllCandidatesWithDetails() {
+        List<Candidates> candidates = candidatesRepository.findAll();
+        return ResponseEntity.ok(candidates);
+    }
     // Add a new candidate
     @PostMapping
     public ResponseEntity<Candidates> addCandidate(@RequestBody Candidates candidate) {
