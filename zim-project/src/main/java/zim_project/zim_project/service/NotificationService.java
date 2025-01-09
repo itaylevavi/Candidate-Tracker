@@ -33,14 +33,6 @@ public class NotificationService {
     }
 
     // Update a notification by ID
-    public Notifications updateNotification(Long id, Notifications notificationDetails) {
-        return notificationRepository.findById(id).map(notification -> {
-            notification.setCandidate(notificationDetails.getCandidate());
-            notification.setEmailSent(notificationDetails.getEmailSent());
-            notification.setMeetingInvite(notificationDetails.getMeetingInvite());
-            return notificationRepository.save(notification);
-        }).orElse(null);
-    }
 
     // Delete a notification by ID
     public ResponseEntity<Void> deleteNotification(Long id) {
